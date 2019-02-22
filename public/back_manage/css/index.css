@@ -1,0 +1,14 @@
+.body_bg {
+    background-color: #ccc;
+}
+
+.panel-title {
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.mt_150 {
+    margin-top: 150px;
+}

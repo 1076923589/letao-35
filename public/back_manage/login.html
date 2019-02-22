@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>乐淘商城</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body class="body_bg">
+    <!-- xx-default 白色
+    xx-danger  紅色
+    xx-success  綠色
+    xx-primary 深藍色
+    
+    
+    -->
+
+    <div class="container">
+        <!-- 大屏4份,,其他撑满 -->
+        <div class="col-lg-4 col-lg-offset-4 mt_150">
+            <!-- 表单内容 -->
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">後台管理系統</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal">
+                        <!-- bootstrap裡面的表達都會使用form-group包裹起來 -->
+                        <div class="form-group">
+                            <label for="username" class="col-sm-3 control-label">用戶名 </label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="username" placeholder="請輸入用戶名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-3 control-label">密　碼</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" id="password" placeholder="請輸入密碼">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="reset" class="btn btn-default pull-left">重置</button>
+                                <button type="submit" class="btn btn-default pull-right">登錄</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
