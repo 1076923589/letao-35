@@ -1,10 +1,10 @@
 // 进度条功能
 // 开始进度条
-NProgress.start();
+// NProgress.start();
 
-setTimeout(function(){
-    NProgress.done();
-}, 500);
+// setTimeout(function(){
+//     NProgress.done();
+// }, 500);
 
 
 
@@ -79,11 +79,8 @@ $('#logoutBtn').click(function() {
             if (info.success) {
                 // 退出成功
                 location = 'login.html'
-
-            }
-            
+            }        
         }
-
     })
 })
-})
+});

@@ -148,5 +148,16 @@ a {
   }
 
 
+
+  .lt_main .commont .common_left,
+  .lt_main .commont .common_right {
+    width: 47%;
+    height: 400px;
+    background-color: pink;
+  }
+
+
+
+
   
   
