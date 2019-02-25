@@ -110,7 +110,7 @@ a {
   /* 主体部分 */
   .lt_main {
     padding-left: 180px;
-    height: 2000px;
+    height: 1000px;
     background-color: #616167;
     padding-top: 50px;
     transition: all 1s;
@@ -153,9 +153,15 @@ a {
   .lt_main .commont .common_right {
     width: 47%;
     height: 400px;
-    background-color: pink;
+    /* background-color: pink; */
   }
 
+  .table.table-bordered  th,
+  .table.table-bordered td {
+    text-align: center;
+    vertical-align: middle;
+    /* height: 100px; */
+  }
 
 
 

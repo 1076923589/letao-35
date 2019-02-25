@@ -50,12 +50,37 @@
     </div>
     <!-- container,container-fluid 寬度百分之百 -->
     <div class="container-fluid">
-         <!-- 路径导航 -->
+         <!-- 路径导航 面包屑-->
       <ol class="breadcrumb mt_20">
         <li><a href="index.html">管理系统</a></li>
-        <li class="active">首页</li>
+        <li class="active">个人介绍</li>
       </ol>
-    </div>
+      <!-- 表格 -->
+
+      <div class="lt_content">
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>用户名</th>
+              <th>手机号</th>
+              <th>状态</th>
+              <th>操作</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+            <!--   挖坑 -->
+          </tbody>
+        </table>
+        <!-- 准备分页容器 -->
+        <ul id="pagnator">
+        </ul>
+      </div>
+      </div>
+
 </div>
 
 
@@ -77,14 +102,39 @@
     </div>
   </div>
 
-
-
+  <!-- 模板引擎
+  1.引包
+  2.创建模板
+  3.准备数据
+  4.完成渲染
+  
+  -->
+  <script type="text/html" id="tp1">
+    {{ each rows v i}}
+    <tr>
+      <td>{{i + 1}}</td>
+      <td>{{v.username}}</td>
+      <td>{{v.mobile}}</td>
+      <td>{{v.isDelete == 1 ? "正常" : "禁用"}}</td>
+      <td>{{ if v.isDelete ===1}}
+          <button class="btn btn-danger">禁用</button>
+          {{else}}
+          <button class="btn btn-success">启用</button>
+          {{ /if}}
+      </td>
+    </tr>
+    {{ /each }} 
+    
+  </script>
   <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
   <script src="./js/cammon.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src="./js/user.js"></script>
 
 
 </body>
