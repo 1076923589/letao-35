@@ -13,57 +13,84 @@
 </head>
 
 <body>
-<!-- 侧边栏 -->
-<div class="lt_aside">
+  <!-- 侧边栏 -->
+  <div class="lt_aside">
     <!-- 标题 -->
     <div class="brand">
-        <a href="index.html">帅张个人简历</a>
+      <a href="index.html">帅张个人简历</a>
     </div>
 
     <!-- 用户 -->
     <div class="user">
-        <img src="./images/WIN_20181114_22_40_31_Pro.jpg" alt="">
-        <p>超级帅哥</p>
+      <img src="./images/WIN_20181114_22_40_31_Pro.jpg" alt="">
+      <p>超级帅哥</p>
     </div>
     <!-- 导航 -->
     <div class="nav">
-        <ul>
-            <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>个人介绍</span></a></li>
-            <li>
-                <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>笨蛋鱼儿</span></a>
-            <div class="child" style="display:block">
-                <a href="first.html" class="zhang">一条笨鱼</a>
-                <a href="second.html">二条笨鱼</a>
+      <ul>
+        <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>个人介绍</span></a></li>
+        <li>
+          <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>笨蛋鱼儿</span></a>
+          <div class="child" style="display:block">
+            <a href="first.html" class="zhang">一条笨鱼</a>
+            <a href="second.html">二条笨鱼</a>
 
-            </div>
+          </div>
         </li>
-            <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>傻鱼儿哟</span></a></li>
-        </ul>
+        <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>傻鱼儿哟</span></a></li>
+      </ul>
     </div>
-</div>
-<!-- 主体部分 -->
-<div class="lt_main">
+  </div>
+  <!-- 主体部分 -->
+  <div class="lt_main">
     <div class="lt_topbar">
-        <a class="pull-left icon_menu"><i class="glyphicon glyphicon-align-justify"></i></a>
-        <a class="pull-right icon_logout"><i class="glyphicon glyphicon-log-out"></i></a>
+      <a class="pull-left icon_menu"><i class="glyphicon glyphicon-align-justify"></i></a>
+      <a class="pull-right icon_logout"><i class="glyphicon glyphicon-log-out"></i></a>
 
     </div>
     <!-- container,container-fluid 寬度百分之百 -->
     <div class="container-fluid">
-         <!-- 路径导航 -->
+      <!-- 路径导航 -->
       <ol class="breadcrumb mt_20">
         <li><a href="index.html">管理系统</a></li>
-        <li class="active">首页</li>
+        <li class="active">笨蛋鱼儿</li>
+        <li class="active">一条笨鱼</li>
+
       </ol>
+
+      <div class="lt_content">
+
+        <button class="btn btn-default" id="addBtn"> 添加分类</button>
+        <table class="table table-bordered table-hover mt_20">
+          <thead>
+            <tr>
+              <th width='25%'>序号</th>
+              <th width='75%'>一级分类</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>111</td>
+              <td>小鱼儿</td>
+
+
+            </tr>
+          </tbody>
+          <!-- 挖个坑,, -->
+        </table>
+       <div class="pull-right">
+        <ul id="paginator"></ul>
+       </div>
+      </div>
     </div>
-</div>
+  </div>
 
 
-<div class="modal fade" tabindex="-1" id="logoutModal">
+  <div class="modal fade" tabindex="-1" id="logoutModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
           <h4 class="modal-title">温馨提示</h4>
         </div>
         <div class="modal-body">
@@ -77,14 +104,41 @@
     </div>
   </div>
 
+  <!-- <script type="text/html" id="tp1">
+    {{ each rows v i}}
+    <tr>
+      <td>{{i + 1 + (page-1) * size}}</td>
+      <td>{{v.username}}</td>
+      <td>{{v.mobile}}</td>
+      <td>{{v.isDelete == 1 ? "正常" : "禁用"}}</td>
+      <td data-id = '{{v.id}}'>{{ if v.isDelete ===1}}
+          <button class="btn btn-danger">禁用</button>
+          {{else}}
+          <button class="btn btn-success">启用</button>
+          {{ /if}}
+      </td>
+    </tr>
+    {{ /each }}  -->
+  <script type="text/html" id="one_1">
+    {{ each rows v i }}
+      <tr>
+        <td>{{ i + 1 + size*(page-1)}}</td>
+        <td>{{ v.categoryName}}</td>
+      </tr>
+    {{ /each}}
 
+
+</script>
 
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/cammon.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src="./js/first.js"></script>
 
 
 </body>
