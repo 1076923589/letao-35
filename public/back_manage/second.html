@@ -13,13 +13,13 @@
 </head>
 
 <body>
-<!-- 侧边栏 -->
-<div class="lt_aside">
+
+  <!-- 侧边栏 -->
+  <div class="lt_aside">
     <!-- 标题 -->
     <div class="brand">
-        <a href="index.html">帅张个人简历</a>
+      <a href="index.html">黑马35期</a>
     </div>
-
     <!-- 用户 -->
     <div class="user">
         <img src="./images/WIN_20181114_22_40_31_Pro.jpg" alt="">
@@ -27,43 +27,132 @@
     </div>
     <!-- 导航 -->
     <div class="nav">
-        <ul>
-            <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>个人介绍</span></a></li>
-            <li>
-                <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>笨蛋鱼儿</span></a>
-            <div class="child"  style="display:block">
-                <a href="first.html">一条笨鱼</a>
-                <a href="second.html" class="zhang">二条笨鱼</a>
-
-            </div>
+      <ul>
+        <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+        <li>
+          <a class="category" href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+          <div class="child" style="display: block;">
+            <a href="first.html">一级分类</a>
+            <a class="current" href="second.html">二级分类</a>
+          </div>
         </li>
-            <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>傻鱼儿哟</span></a></li>
-        </ul>
+        <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+      </ul>
     </div>
-</div>
-<!-- 主体部分 -->
-<div class="lt_main">
-    <div class="lt_topbar">
-        <a class="pull-left icon_menu"><i class="glyphicon glyphicon-align-justify"></i></a>
-        <a class="pull-right icon_logout"><i class="glyphicon glyphicon-log-out"></i></a>
+  </div>
 
+  <!-- 主体部分 -->
+  <div class="lt_main">
+    <div class="lt_topbar">
+      <a href="#" class="icon_menu pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+      <a href="#" class="icon_logout pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
     </div>
-    <!-- container,container-fluid 寬度百分之百 -->
+
+    <!--  container , container-fluid 宽度100%-->
     <div class="container-fluid">
-         <!-- 路径导航 -->
+      <!-- 路径导航 -->
       <ol class="breadcrumb mt_20">
         <li><a href="index.html">管理系统</a></li>
-        <li class="active">首页</li>
+        <li class="active">分类管理</li>
+        <li class="active">二级分类</li>
       </ol>
+
+      <div class="lt_content">
+
+        <button class="btn btn-default" id="addBtn">添加分类</button>
+
+        <table class="table table-hover table-bordered mt_20">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>一级分类名称</th>
+              <th>二级分类名称</th>
+              <th>二级分类LOGO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 挖个坑 -->
+          </tbody>
+        </table>
+
+        <div class="pull-right">
+          <ul id="paginator"></ul>
+        </div>
+
+      </div>
     </div>
-</div>
+  </div>
+
+  <!-- 添加模态框 -->
+  <div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <form id="form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title">添加分类</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="form-group">
+              <div class="dropdown">
+                <!-- 按钮 -->
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span id="dropdownText">请选择一级分类</span>
+                  <span class="caret"></span>    <!-- 小箭头 -->
+                </button>
+                <!-- 切换的下拉菜单 -->
+                <ul class="dropdown-menu">
+                  <!-- 挖个坑 -->
+                </ul>
+              </div>
+
+              <!-- 准备一个隐藏域, 专门用于提交数据 -->
+              <input type="hidden" name="categoryId">
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+            </div>
+
+            <div class="form-group">
+              <label class="btn btn-default" for="fileupload">选择图片</label>
+              <!-- 配置必要的属性, input, type类型 file
+                   1. name 后台用于接收图片文件的
+                   2. data-url 配置插件将来上传文件时, 请求的后台接口地址
+                   3. post 只要是文件上传, 必然是 post 请求, 默认就是 post
+              -->
+              <input data-url="/category/addSecondCategoryPic" name="pic1" type="file" id="fileupload" style="display: none;">
+            </div>
+
+            <div class="form-group" id="imgBox">
+              <img style="height: 100px;" src="./images/none.png" alt="">
+              <input type="hidden" name="brandLogo">
+            </div>
 
 
-<div class="modal fade" tabindex="-1" id="logoutModal">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary">添加</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 退出模态框 -->
+  <!-- 调整模态框大小  默认中等
+       1. modal-lg  大模态框
+       2. modal-sm  小模态框
+       外层蒙层, 内层模态框, 类加给内层
+  -->
+  <div class="modal fade" tabindex="-1" id="logoutModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
           <h4 class="modal-title">温馨提示</h4>
         </div>
         <div class="modal-body">
@@ -77,15 +166,38 @@
     </div>
   </div>
 
+  <script type="text/html" id="secondTpl">
+    {{ each rows v i }}
+      <tr>
+        <td>{{ i + 1 + (page-1) * size }}</td>
+        <td>{{ v.categoryName }}</td>
+        <td>{{ v.brandName }}</td>
+        <td>
+          <img style="height: 50px;" src="{{ v.brandLogo }}" alt="">
+        </td>
+      </tr>
+    {{ /each }}
+  </script>
+
+  <script type="text/html" id="dropdownTpl">
+    {{ each rows v i }}
+      <li><a data-id="{{ v.id }}" href="#">{{ v.categoryName }}</a></li>
+    {{ /each }}
+  </script>
 
 
   <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/cammon.js"></script>
   <script src="./js/isLogin.js"></script>
-
+  <!-- <script src="./js/second.js"></script> -->
 
 </body>
 

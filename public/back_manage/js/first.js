@@ -28,6 +28,7 @@ $(function () {
 
                     onPageClicked: function (a, b, c, page) {
                         currentPage = page;
+                        aaa();
                     }
                 })
             }
@@ -35,42 +36,62 @@ $(function () {
 
         })
     }
+
+    // 點擊按鈕顯示模態框
     $('#addBtn').on('click', function () {
+        $('#addModal').modal('show')
+    });
 
-        // alert(1111)
-    })
+    // 3.完成添加功能
 
+    $('#form').bootstrapValidator({
 
+        // 配置图标
+        // feedbackIcons: {
+        //     valid: 'glyphicon glyphicon-ok',
+        //     invalid: 'glyphicon glyphicon-remove',
+        //     validating: 'glyphicon glyphicon-refresh'
+        // },
+        // 配置需要校驗的字段
 
+        fields: {
+            categoryName: {
+                // 校驗規則
+                validators: {
+                    // 非空校驗
+                    notEmpty: {
+                        message: '請輸入一級分類名'
+                    }
+                }
+            }
+        }
+    });
 
+    // 注册表单校验成功事件 阻止默认提交，，使用ajax提交
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $('#form').on('success.form.bv' , function(e) {
+        e.preventDefault(); // 阻止默认的提交
+        $.ajax({
+            type: 'post',
+            url: '/category/addTopCategory',
+            data: $('#form').serialize(),
+            dataType: 'json',
+            success: function(res) {
+           
+              if (res.success) {
+                // 说明添加成功
+                // 关闭模态框
+                $('#addModal').modal('hide');
+                // 重新渲染页面, 重新渲染第一页
+                currentPage = 1;
+                aaa();
+      
+      
+                // 将表单的内容和状态都要重置
+                $('#form').data('bootstrapValidator').resetForm(true);
+              }
+            }
+          })
+        })
+      
 })

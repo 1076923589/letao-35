@@ -84,8 +84,33 @@
       </div>
     </div>
   </div>
+<!-- 添加分类模態框 -->
 
+<div class="modal fade" tabindex="-1" id="addModal">
+  <div class="modal-dialog modal-sm">
+<form id="form">
+  <div class="modal-content">
+    <form >
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+      <h4 class="modal-title">添加分類</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <input type="text" name="categoryName" class="form-control" placeholder="請輸入小笨魚">
+      </div>
+    </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+      <button type="submit" class="btn btn-primary" >添加</button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
 
+  <!-- 退出功能的模態框 -->
   <div class="modal fade" tabindex="-1" id="logoutModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -122,7 +147,7 @@
   <script type="text/html" id="one_1">
     {{ each rows v i }}
       <tr>
-        <td>{{ i + 1 + size*(page-1)}}</td>
+        <td>{{ i + 1 + (page-1) * size}}</td>
         <td>{{ v.categoryName}}</td>
       </tr>
     {{ /each}}
